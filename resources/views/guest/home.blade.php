@@ -8,8 +8,43 @@
   <div class="d-flex justify-content-center">
     <h1 id="purple">Welcome to JH Furniture</h1>
   </div>
-  <img src="{{ asset('img/Jessheim.jpg') }}" class="rounded float-start" alt="...">
-  <img src="..." class="rounded float-end" alt="...">
+
+    
+        <div class="card rounded float-start ms-5" style="width: 18rem;">
+            <img src="{{ asset('img/Mammut.jpg') }}" class="card-img-top" alt="Furniture">
+            <div class="card-body">
+              <h5 class="card-title">Mammut</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="card rounded float-start ms-5" style="width: 18rem;">
+            <img src="{{ asset('img/Vuku.jpg') }}" class="card-img-top" alt="Furniture">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+          <div class="card rounded float-start ms-5" style="width: 18rem;">
+            <img src="{{ asset('img/Jessheim.jpg') }}" class="card-img-top" alt="Furniture">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        <div class="card rounded float-start ms-5" style="width: 18rem;">
+            <img src="{{ asset('img/Teodores.jpg') }}" class="card-img-top" alt="Furniture">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        
+        
+    
 </div>
   @endsection
   
