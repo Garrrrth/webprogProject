@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,6 @@ use App\Http\Controllers\GuestController;
 |
 */
 
-Route::get('/', [GuestController::class, 'login'])->name('login');
+Route::get('/', [GuestController::class, 'home'])->name('home');
+Route::get('/login', [GuestController::class, 'login'])->name('login');
+Route::get('/register', [GuestController::class, 'register'])->name('register');

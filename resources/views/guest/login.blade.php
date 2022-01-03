@@ -1,23 +1,35 @@
-@extends('layouts.unregistered')
+@extends('layouts.guest')
 
 @section('title', 'Login')
 
-@section('unregistered')
+@section('headerfooter')
 
-
-
-<div class="row g-3 align-items-center">
-    <div class="col-auto">
-      <label for="inputPassword6" class="col-form-label">Password</label>
-    </div>
-    <div class="col-auto">
-      <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-    </div>
-    <div class="col-auto">
-      <span id="passwordHelpInline" class="form-text">
-        Must be 8-20 characters long.
-      </span>
+<div class="container-fluid mt-4">
+  <div class="d-flex justify-content-center">
+    <h1 id="purple">Login</h1>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="row g-3 align-items-center">
+        <form>
+          <table>
+          <label class="emailPass">
+            Email <input type="email" name="email" />
+          </label>
+          
+          <label class="emailPass">
+            Password <input type="password" name="password" />
+          </label>
+        </table>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label class="form-check-label" for="remember">Remember Me</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      
+      
     </div>
   </div>
+</div>
   @endsection
   
