@@ -10,7 +10,8 @@
   </div>
   <div class="d-flex justify-content-center">
     <div class="row g-3 align-items-center">
-        <form>
+        <form method="post" action="/login">
+          @csrf
           <table>
           <label class="emailPass">
             Email <input type="email" name="email" />

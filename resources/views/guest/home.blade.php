@@ -8,6 +8,11 @@
   <div class="d-flex justify-content-center">
     <h1 id="purple">Welcome to JH Furniture</h1>
   </div>
+        @if (auth()->user() != null)
+            <p>Hi, {{auth()->user()->name}}</p>
+        @else
+            <p>Hi, Guest</p>
+        @endif
 
     
         <div class="card rounded float-start ms-5" style="width: 18rem;">
@@ -43,7 +48,12 @@
             </div>
         </div>
         
-        
+        {{-- buat kalo ada yang login
+          if(auth()->user() != null){
+            Keluarin tombol logout disini
+            
+          }
+          --}}
     
 </div>
   @endsection

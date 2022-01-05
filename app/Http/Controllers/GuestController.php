@@ -19,4 +19,20 @@ class GuestController extends Controller
     public function register(){
         return view('guest.register');
     }
+
+    public function logon(Request $request){
+        $email = $request->email;
+        $password = $request->password;
+
+        if(auth()->attempt(['email'=>$email, 'password'=>$password])){
+            return redirect('/home');
+        }else{
+            return redirect('/login');
+        }
+    }
+
+    public function logout(){
+        auth()->logout();
+        return redirect('/home');
+    }
 }
