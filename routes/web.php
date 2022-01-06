@@ -16,7 +16,7 @@ use App\Http\Controllers\MemberController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', [GuestController::class, 'home'])->name('home');
 Route::get('/home', [GuestController::class, 'home'])->name('home');
 Route::get('/login', [GuestController::class, 'login'])->name('login');
 Route::post('/login', [GuestController::class, 'logon']);
