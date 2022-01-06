@@ -9,15 +9,15 @@ class GuestController extends Controller
 {
     public function home(){
         
-        return view('guest.home');
+        return view('page.home');
     }
     public function login(){
         
-        return view('guest.login');
+        return view('page.login');
     }
 
     public function register(){
-        return view('guest.register');
+        return view('page.register');
     }
 
     public function logon(Request $request){
