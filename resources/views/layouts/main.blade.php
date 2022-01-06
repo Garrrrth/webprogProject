@@ -29,20 +29,25 @@
               <li class="nav-item">
                 <a class="nav-link fw-bold text-white" href="#">View Furniture</a>
               </li>
-
+             
               @if (auth()->user() != null)
 
               @if (auth()->user()->role == 'user')
+
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" href="#">Profile</a>
+                <a class="nav-link fw-bold text-white" href="{{route('profile')}}">Profile</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link fw-bold text-white" href="#">Cart</a>
               </li>  
+              
               @else
+              
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" href="#">Profile</a>
+                <a class="nav-link fw-bold text-white" href="{{route('profile')}}">Profile</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link fw-bold text-white" href="#">Add Furniture</a>
               </li>  

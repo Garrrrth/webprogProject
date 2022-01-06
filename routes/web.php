@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +22,4 @@ Route::get('/login', [GuestController::class, 'login'])->name('login');
 Route::post('/login', [GuestController::class, 'logon']);
 Route::get('/logout', [GuestController::class, 'logout']);
 Route::get('/register', [GuestController::class, 'register'])->name('register');
+Route::get('/profile',[UserController::class,'profile'])->name('profile');
