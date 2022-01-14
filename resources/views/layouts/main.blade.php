@@ -27,7 +27,7 @@
                 <a class="nav-link fw-bold text-white" href="/home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" href="#">View Furniture</a>
+                <a class="nav-link fw-bold text-white" href="/vfurniture">View Furniture</a>
               </li>
              
               @if (auth()->user() != null)

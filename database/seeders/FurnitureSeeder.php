@@ -16,11 +16,35 @@ class FurnitureSeeder extends Seeder
     {
         //
         DB::table('furniture')->insert([
-            'name' => 'mulia',
-            'price' => 'mulia@mulia.com',
-            'type' => bcrypt('mulia'),
-            'color' => 'jalan raya bagus',
-            'image' => 'pria'
+            'name' => 'Mammut',
+            'price' => 'Rp. 85.000',
+            'type' => 'Chair',
+            'color' => 'White',
+            'image' => file_get_contents('public/img/Mammut.jpg')
+        ]);
+
+        DB::table('furniture')->insert([
+            'name' => 'Vuku',
+            'price' => 'Rp. 450.000',
+            'type' => 'Chair',
+            'color' => 'White',
+            'image' => file_get_contents('public/img/Vuku.jpg')
+        ]);
+
+        DB::table('furniture')->insert([
+            'name' => 'Jessheim',
+            'price' => 'Rp. 850.000',
+            'type' => 'Chair',
+            'color' => 'White',
+            'image' => file_get_contents('public/img/Jessheim.jpg')
+        ]);
+
+        DB::table('furniture')->insert([
+            'name' => 'Teodores',
+            'price' => 'Rp. 85.000',
+            'type' => 'Chair',
+            'color' => 'White',
+            'image' => file_get_contents('public/img/Teodores.jpg')
         ]);
     }
 }

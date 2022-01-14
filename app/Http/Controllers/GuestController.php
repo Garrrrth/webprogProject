@@ -20,6 +20,10 @@ class GuestController extends Controller
         return view('page.register');
     }
 
+    public function viewfurniture(){
+        return view('page.vfurniture');
+    }
+
     public function logon(Request $request){
         $email = $request->email;
         $password = $request->password;

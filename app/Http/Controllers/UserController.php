@@ -10,4 +10,8 @@ class UserController extends Controller
         
         return view('page.profile');
     }
+
+    public function update(){
+        return view('profile.upProfile');
+    }
 }

@@ -48,7 +48,7 @@
 
 
 
-<a href="#"><button type="button" class="btn btn-purple">Update Profile</button></a>
+<a href="/upProfile"><button type="button" class="btn btn-purple">Update Profile</button></a>
 
 
 @endsection

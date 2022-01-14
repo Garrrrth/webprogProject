@@ -23,3 +23,5 @@ Route::post('/login', [GuestController::class, 'logon']);
 Route::get('/logout', [GuestController::class, 'logout']);
 Route::get('/register', [GuestController::class, 'register'])->name('register');
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
+Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
+Route::get('/upProfile', [UserController::class, 'update'])->name('update');
