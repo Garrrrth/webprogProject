@@ -9,41 +9,80 @@
     <h1 id="purple">Register</h1>
   </div>
       <div class="content">
-        <form>
+
+        <form action="/register" enctype="multipart/form-data" method="POST">
+          {{ csrf_field() }}
+          <table>
+              <tr>
+                  <td>Name</td>
+                  <td> <input type="text" name="Name" placeholder="Enter Name"> </td>
+              </tr>
+              <tr>
+                  <td>Email</td>
+                  <td><input type="text" name="Email" placeholder="Enter Email"></td>
+              </tr>
+              <tr>
+                  <td>Address</td>
+                  <td><input type="text" name="Address" placeholder="Enter Address"></td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td><input type="password" name="Password" placeholder="Enter Password"></td>
+            </tr>
+              <tr>
+                  <td>Gender</td>
+                  <td>
+                    <div class="form-check">
+                      <input class="Gender" type="radio" name="Gender" id="Gender" value="Man" checked>
+                        Male
+                    </div>
+                    <div class="form-check">
+                      <input class="Gender" type="radio" name="Gender" id="Gender" value="Woman">
+                        Female
+                    </div>
+                  </td>
+              </tr>
+          </table>
+          <button type="submit">Register</button>
+      </form>
+
+
+        {{-- <form action="/register" method="POST">
+          {{ csrf_field() }}
           <div class="form-group">
-            <label for="inputName">Full Name</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Enter your full name here">
+            <label for="Name">Full Name</label>
+            <input type="text" class="form-control" id="Name" placeholder="Enter your full name here">
           </div>  
             <div class="form-group">
-              <label for="inputEmail">Email address</label>
-              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <label for="Email">Email address</label>
+              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+              <label for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" placeholder="Password">
             </div>
             <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="Enter your address here">
+              <label for="Address">Address</label>
+              <input type="text" class="form-control" id="Address" placeholder="Enter your address here">
             </div>
 
             Gender
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="Man" id="Man" value="Man" checked>
-              <label class="form-check-label" for="Man">
+              <input class="Gender" type="radio" name="Gender" id="Gender" value="Man" checked>
+              <label class="Gender" for="Man">
                 Male
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="Woman" id="Woman" value="Woman">
-              <label class="form-check-label" for="Woman">
+              <input class="Gender" type="radio" name="Gender" id="Gender" value="Woman">
+              <label class="Gender" for="Woman">
                 Female
               </label>
             </div>
 
 
             <button type="submit" class="btn btn-primary">Register</button>
-        </form>  
+        </form>   --}}
       
 
 </div>

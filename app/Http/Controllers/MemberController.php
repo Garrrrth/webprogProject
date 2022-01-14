@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class MemberController extends Controller
 {
-    // public function profile(){        
-    //     return view('member.profile');
-    // }
+    public function Update(Request $request){
+        
+        // User::where('id', Auth::user()->id)([
+        //     'name' => $request->name,
+        //     'password' => bcrypt($request->password),
+        //     'address' => $request->address
+        // ]);
 
-    // public function cart(){
-    //     return view('member.cart');
-    // }
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->Name;
+        $user->email = $request->Email;
+        $user->password = bcrypt($request->Password);
+        $user->address = $request->Address;
+
+        $user->save();
+        return redirect('profile');
+    }
 }

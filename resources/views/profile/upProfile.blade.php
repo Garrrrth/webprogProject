@@ -9,31 +9,31 @@
       <h1 id="purple">Update Profile</h1>
     </div>
         <div class="content">
-          <form>  
-              <div class="form-group">
-                <label for="editEmail">Email address</label>
-                <input type="email" class="form-control" id="editEmail" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              
-              <div class="form-group">
-                <label for="editName">Address</label>
-                <input type="text" class="form-control" id="editName" placeholder="Replace your name here">
-              </div>
-
-              <div class="form-group">
-                <label for="editPassword">Password</label>
-                <input type="password" class="form-control" id="editPassword" placeholder="Password">
-              </div>
+          <form action="/upProfile" enctype="multipart/form-data" method="POST">
+            {{ csrf_field() }}
+            <table>
+                <tr>
+                    <td>Name</td>
+                    <td> <input type="text" name="Name" placeholder="Enter Name"> </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="text" name="Email" placeholder="Enter Email"></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td><input type="password" name="Password" placeholder="Enter Password"></td>
+              </tr>
   
               @if (auth()->user()->role == 'user')
-              <div class="form-group">
-                <label for="editAddress">Address</label>
-                <input type="text" class="form-control" id="editAddress" placeholder="Edit your address here">
-              </div>
+              <tr>
+                <td>Address</td>
+                <td><input type="text" name="Address" placeholder="Enter Address"></td>
+              </tr>
              @else
                  
              @endif
-  
+            </table>
               <button type="submit" class="btn btn-primary">Submit</button>
           </form>  
         
