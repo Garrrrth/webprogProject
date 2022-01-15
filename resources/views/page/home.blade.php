@@ -14,12 +14,15 @@
       </div>
 
       <div class="card-group">
+
+        {{-- ni ntar cardnya di loop trus hrefnya juga ngelempar barang dri database furniturenya --}}
+
         <div class="card" style="width: 18rem;">
             <img src="{{ asset('img/Mammut.jpg') }}" class="card-img-top" alt="Furniture">
             <div class="card-body">
               <h5 class="card-title">Mammut</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="/detail" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         <div class="card" style="width: 18rem;">
@@ -27,7 +30,7 @@
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -35,7 +38,7 @@
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
           </div>
         <div class="card" style="width: 18rem;">
@@ -43,7 +46,7 @@
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
         </div>
       </div>  

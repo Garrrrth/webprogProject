@@ -8,7 +8,9 @@
 <h1 id="purple">{{auth()->user()->name}}'s Profile</h1>
 </div>
 <div class="d-flex justify-content-center">
-    <table>
+    
+    <table class="mt-5">
+        
         <tr>
             <th class="px-5">Name</th><th>{{auth()->user()->name}}</th>
         </tr>
@@ -38,17 +40,19 @@
 
 </div>
 
-<a href="/logout"><button type="button" class="btn btn-purple">Logout</button></a>
+<div class="position-absolute top-50 start-50 translate-middle">
+
+<a href="/logout"><button type="button" class="button">Logout</button></a>
 
 @if (auth()->user()->role == 'user')
-    <a href="#"><button type="button" class="btn btn-purple" >View Transaction History</button></a>
+    <a href="#"><button type="button" class="button" >View Transaction History</button></a>
 @else
-<a href="#"><button type="button" class="btn btn-purple" >View All User's Transaction</button></a>
+<a href="#"><button type="button" class="button" >View All User's Transaction</button></a>
 @endif
 
 
 
-<a href="/upProfile"><button type="button" class="btn btn-purple">Update Profile</button></a>
-
+<a href="/upProfile"><button type="button" class="button">Update Profile</button></a>
+</div>
 
 @endsection

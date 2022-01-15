@@ -14,4 +14,8 @@ class UserController extends Controller
     public function update(){
         return view('profile.upProfile');
     }
+
+    public function detail(){
+        return view('page.vfurnituredetail');
+    }
 }

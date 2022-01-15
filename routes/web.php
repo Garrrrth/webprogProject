@@ -17,6 +17,8 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//button dari front page
 Route::get('/', [GuestController::class, 'home'])->name('home');
 Route::get('/home', [GuestController::class, 'home'])->name('home');
 Route::get('/login', [GuestController::class, 'login'])->name('login');
@@ -26,5 +28,13 @@ Route::get('/register', [GuestController::class, 'register'])->name('register');
 Route::post('/register',[GuestController::class, 'userregister']);
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
+
+
+//button dalem cart/transaksi
+
+Route::get('/detail', [UserController::class, 'detail'])->name('detail');
+
+//button profile
+
 Route::get('/upProfile', [UserController::class, 'update'])->name('update');
 Route::post('/upProfile', [MemberController::class, 'Update']);
