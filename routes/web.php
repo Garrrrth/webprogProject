@@ -28,6 +28,7 @@ Route::get('/register', [GuestController::class, 'register'])->name('register');
 Route::post('/register',[GuestController::class, 'userregister']);
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
+Route::get('/cart', [UserController::class, 'cart'])->name('cart');
 
 
 //button dalem cart/transaksi
@@ -38,3 +39,7 @@ Route::get('/detail', [UserController::class, 'detail'])->name('detail');
 
 Route::get('/upProfile', [UserController::class, 'update'])->name('update');
 Route::post('/upProfile', [MemberController::class, 'Update']);
+
+//admin
+
+Route::get('/addfurniture', [UserController::class,'addfurniture'])->name('addfurniture');

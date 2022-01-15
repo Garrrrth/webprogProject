@@ -8,7 +8,8 @@
   <div class="d-flex justify-content-center">
     <h1 id="purple">Register</h1>
   </div>
-      <div class="content">
+  
+      <div class="d-flex justify-content-center">
 
         <form action="/register" enctype="multipart/form-data" method="POST">
           {{ csrf_field() }}
@@ -45,7 +46,7 @@
           </table>
           <button type="submit">Register</button>
       </form>
-
+    
 
         {{-- <form action="/register" method="POST">
           {{ csrf_field() }}

@@ -39,7 +39,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" href="#">Cart</a>
+                <a class="nav-link fw-bold text-white" href="/cart">Cart</a>
               </li>  
               
               @else
@@ -49,7 +49,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link fw-bold text-white" href="#">Add Furniture</a>
+                <a class="nav-link fw-bold text-white" href="/addfurniture">Add Furniture</a>
               </li>  
                   
               @endif

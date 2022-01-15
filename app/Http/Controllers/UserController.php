@@ -18,4 +18,15 @@ class UserController extends Controller
     public function detail(){
         return view('page.vfurnituredetail');
     }
+
+    public function cart(){
+        return view('user.cart');
+    }
+
+
+    // admin
+
+    public function addfurniture(){
+        return view('admin.addfurniture');
+    }
 }
