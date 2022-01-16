@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Profile')
+@section('title', 'Furniture Detail')
 
 @section('headerfooter')
 @foreach ( $Furniture as $F)

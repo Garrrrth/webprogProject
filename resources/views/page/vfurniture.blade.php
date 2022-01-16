@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Profile')
+@section('title', 'View Furniture')
 
 @section('headerfooter')
 

@@ -28,6 +28,10 @@ class UserController extends Controller
         return view('user.cart');
     }
 
+    public function checkout(){
+        return view('user.checkout');
+    }
+
     // public function buyfurn($Furniture_id, $header_id, $user_id){
     //     $furniture = Furniture::where('id', $Furniture_id)->get();
     //     $header = Header::where('id', $header_id)->get();
@@ -55,4 +59,8 @@ class UserController extends Controller
         return view('admin.addfurniture');
     }
     
+    public function updatefurniture(){
+        return view('admin.updatefurniture');
+    }
+
 }

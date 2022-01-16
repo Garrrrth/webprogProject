@@ -20,8 +20,22 @@
           <img src="{{ asset($F->image) }}" alt="">
             <div class="card-body">
               <h5 class="card-title">{{$F->name}}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="/detail/{{$F->id}}" class="btn btn-primary">Add to Cart</a>
+              <p class="card-text">Rp. {{$F->price}}</p>
+             
+
+              @if (auth()->user() != null)
+                  
+                  @if (auth()->user()->role == 'user')
+                    <a href="/detail/{{$F->id}}" class="btn btn-primary">Add to Cart</a>
+                  @else
+                    <a href="/updatefurniture"><button type="button" class="button1" >Update</button></a>
+                    <a href="#"><button type="button" class="button2" >Delete</button></a>
+                  @endif
+
+              @else
+                <a href="/login" class="btn btn-primary">Add to Cart</a>
+              @endif
+                                             
             </div>
           </div>
           @endforeach 
