@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Furniture;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,8 +16,9 @@ class UserController extends Controller
         return view('profile.upProfile');
     }
 
-    public function detail(){
-        return view('page.vfurnituredetail');
+    public function detail($Furniture_id){
+        $furniture = Furniture::where('id', $Furniture_id)->get();
+        return view('page.vfurnituredetail', ['Furniture' => $furniture]);
     }
 
     public function cart(){

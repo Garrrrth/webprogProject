@@ -33,7 +33,7 @@ Route::get('/cart', [UserController::class, 'cart'])->name('cart');
 
 //button dalem cart/transaksi
 
-Route::get('/detail', [UserController::class, 'detail'])->name('detail');
+Route::get('/detail/{id}', [UserController::class, 'detail'])->name('detail');
 
 //button profile
 

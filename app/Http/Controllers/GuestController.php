@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Furniture;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,8 +10,8 @@ use Illuminate\Http\Request;
 class GuestController extends Controller
 {
     public function home(){
-        
-        return view('page.home');
+        $furniture = Furniture::Paginate(4);
+        return view('page.home', ["Furniture" => $furniture]);
     }
     public function login(){
         
@@ -22,7 +23,8 @@ class GuestController extends Controller
     }
 
     public function viewfurniture(){
-        return view('page.vfurniture');
+        $furniture = Furniture::Paginate(4);
+        return view('page.vfurniture', ["Furniture" => $furniture]);
     }
 
     public function logon(Request $request){

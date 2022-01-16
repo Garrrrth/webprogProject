@@ -3,38 +3,44 @@
 @section('title', 'Profile')
 
 @section('headerfooter')
-
+@foreach ( $Furniture as $F)
 <div class="container-fluid mt-4">
     <div class="d-flex justify-content-center"> 
-        <h1 id="purple">Asset Name Furniture</h1>        
+        <h1 id="purple">{{$F->name}}</h1>        
     </div>
   
 
     <div class="position-absolute top-50 start-50 translate-middle">
-
+        
         <div class="detailPic" style="float: left">
-            <img src="{{ asset('img/Mammut.jpg') }}" alt="FurnitureDetail">
+            <img src="{{ asset($F->image) }}" alt="FurnitureDetail">
         </div>
         
         <div class="detailInfo" style="float: right">
             <table>
                 <tr>
                     <th class="px-5">Name</th>  
-                    {{-- <th>buat auth</th> --}}
+                    <th>{{$F->name}}</th>
+                    
                 </tr>
                 <tr>
                     <th class="px-5">Price</th>
+                    <th>Rp. {{$F->price}}</th>
                 </tr>
                 <tr>
                     <th class="px-5">Type</th>
+                    <th>{{$F->type}}</th>
                 </tr>
                 <tr>
                     <th class="px-5">Color</th>
+                    <th>{{$F->color}}</th>
                 </tr>
                
                              
             </table>
         </div>
+        @endforeach
+        
 
         
     </div>
