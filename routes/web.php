@@ -34,6 +34,7 @@ Route::get('/cart', [UserController::class, 'cart'])->name('cart');
 //button dalem cart/transaksi
 
 Route::get('/detail/{id}', [UserController::class, 'detail'])->name('detail');
+//Route::post('/bfurniture/{id}{id}(id)', [UserController::class, 'buyfurn']);
 
 //button profile
 

@@ -39,7 +39,7 @@
                              
             </table>
         </div>
-        @endforeach
+        
         
 
         
@@ -50,7 +50,7 @@
 
          @if (auth()->user()->role == 'user')
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>
-            <a href="#"><button type="button" class="button" >Add to Cart</button></a>
+            <a href="/bfurniture"><button type="button" class="button" >Add to Cart</button></a>
             
          @else
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>
@@ -65,5 +65,5 @@
     
     
   </div>
-
+  @endforeach
 @endsection
