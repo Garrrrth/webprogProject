@@ -6,6 +6,7 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,7 @@ Route::post('/upProfile', [MemberController::class, 'Update']);
 //admin
 
 Route::get('/addfurniture', [UserController::class,'addfurniture'])->name('addfurniture');
-Route::get('/updatefurniture', [UserController::class,'updatefurniture'])->name('updatefurniture');
+Route::get('updatefurniture/{id}', [UserController::class,'updatefurniture'])->name('updatefurniture');
+Route::post('/addfurniture', [UserController::class, 'confirmadd']);
+Route::post('updatefurniture/{id}', [UserController::class, 'updated']);
+Route::delete('/delete/{id}', [UserController::class, 'delete']);

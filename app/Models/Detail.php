@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Furniture extends Model
+class Detail extends Model
 {
-    public $timestamps = false;
     use HasFactory;
 }

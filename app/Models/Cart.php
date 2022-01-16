@@ -10,8 +10,11 @@ class Cart extends Model
     public $timestamp = false;
     use HasFactory;
     
-    public function carts(){
-        return $this -> hasOne(Header::class, 'header_id','id');
+    public function user(){
+        return $this -> belongsTo(User::class);
+    }
+
+    public function furniture(){
         return $this -> hasMany(Furniture::class, 'furniture_id', 'id');
     }
 

@@ -21,6 +21,7 @@
             <div class="card-body">
               <h5 class="card-title">{{$F->name}}</h5>
               <p class="card-text">Rp. {{$F->price}}</p>
+              
              
 
               @if (auth()->user() != null)
@@ -28,18 +29,28 @@
                   @if (auth()->user()->role == 'user')
                     <a href="/detail/{{$F->id}}" class="btn btn-primary">Add to Cart</a>
                   @else
-                    <a href="/updatefurniture"><button type="button" class="button1" >Update</button></a>
-                    <a href="#"><button type="button" class="button2" >Delete</button></a>
+                    <a href="/updatefurniture/{{$F->id}}"><button type="button" class="button1" >Update</button></a>
+                    <form action="/delete/{{$F->id}}" method = "post">
+                      {{ csrf_field() }}
+                      {{method_field('delete')}}
+                      <button type="submit" class="button2" >Delete</button>
+                  </form>
                   @endif
+
+                  
 
               @else
                 <a href="/login" class="btn btn-primary">Add to Cart</a>
-              @endif
-                                             
+              @endif          
             </div>
           </div>
+          
           @endforeach 
+          
        </div>  
+       <div  class="float-right">
+        {{ $Furniture -> links()}}
+      </div>
       </div>
       <br>
       <br>

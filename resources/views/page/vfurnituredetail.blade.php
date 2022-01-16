@@ -54,8 +54,13 @@
             
          @else
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>
-            <a href="#"><button type="button" class="button1" >Update</button></a>
-            <a href="#"><button type="button" class="button2" >Delete</button></a>
+            
+            <a href="/{{$F->id}}/updatefurniture"><button type="button" class="button1" >Update</button></a>
+            <form action="/delete/{{$F->id}}" method = "post">
+                {{ csrf_field() }}
+                {{method_field('delete')}}
+                <button type="submit" class="button2" >Delete</button>
+            </form>
          @endif
         </div>
 
