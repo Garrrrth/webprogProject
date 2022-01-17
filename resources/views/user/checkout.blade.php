@@ -39,7 +39,7 @@
                                 </div>
                             </div>
 
-
+                            {{-- 16 angka --}}
                         </div>
                         <div class="row justify-content-center pb-3">
                             <div class="col-6"><label for="Card">Credit Card Number:</label>
@@ -51,7 +51,9 @@
                         {{-- di tombol checkout direct ke home abis kelar, hrusnya ad msg sukses tpi js mager --}}
 
                         <div class="row justify-content-center pb-3">
+                            <a href="#">
                             <button type="submit" class="button">Checkout</button> 
+                            </a>
                         </div>
 
 
