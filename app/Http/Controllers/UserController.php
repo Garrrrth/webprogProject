@@ -36,6 +36,11 @@ class UserController extends Controller
         return view('user.cart');
     }
 
+    public function transactionHistory()
+    {
+        return view('user.transaction');
+    }
+
     public function checkout()
     {
         $user = Auth::user();

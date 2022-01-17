@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/bayar/{id}', [UserController::class, 'bayar']);
 });
 
+//transaction
+Route::get('/transactionHistory',[UserController::class,'transactionHistory'])->name('transactionHistory');
+
 
 
 //admin
