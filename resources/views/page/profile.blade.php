@@ -44,10 +44,12 @@
 
 <a href="/logout"><button type="button" class="button">Logout</button></a>
 
+
+{{-- bedain biar admin kluar smua transaction, user cmn kluar punya mreka idk --}}
 @if (auth()->user()->role == 'user')
-    <a href="#"><button type="button" class="button" >View Transaction History</button></a>
+    <a href="/transactionHistory"><button type="button" class="button" >View Transaction History</button></a>
 @else
-<a href="#"><button type="button" class="button" >View All User's Transaction</button></a>
+<a href="/transactionHistory"><button type="button" class="button" >View All User's Transaction</button></a>
 @endif
 
 
