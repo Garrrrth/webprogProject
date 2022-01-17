@@ -56,6 +56,7 @@
                                         <td>Rp. {{ $details->furniture->price * $details->quantity }}</td>
                                     </tr>
                                 @endforeach
+                            </tbody>
                         </table>
                     </div>
                 @endforeach
@@ -64,14 +65,13 @@
                 {{-- end foreach smua furniture di cart --}}
                 <tr>
                     <td class="text-center " colspan="3">Total Price : </td>
-                    <td>Total Price: &ensp;&ensp;IDR.
+                    <td>IDR.
                         {{ $H->detail->sum(function ($a) {
                             return $a->quantity * $a->furniture->price;
                         }) }}
                     </td>
                 </tr>
-                </tbody>
-                </table>
+
             </div>
 
             {{-- end foreach transaksi disini --}}

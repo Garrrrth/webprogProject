@@ -103,7 +103,7 @@ class UserController extends Controller
     public function check(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'Card' => 'required|max:16|numeric',
+            'Card' => 'required|numeric|max:16',
         ]);
 
         if ($validator->fails()) {
