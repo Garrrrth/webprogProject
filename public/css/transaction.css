@@ -1,0 +1,13 @@
+table{
+    border: 1px solid #a748aa;
+    border-collapse: collapse;
+  }
+  th {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  td{
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

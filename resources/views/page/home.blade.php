@@ -17,7 +17,7 @@
         {{-- ni ntar cardnya di loop trus hrefnya juga ngelempar barang dri database furniturenya --}}
         @foreach ( $Furniture as $F)
         <div class="card" style="width: 18rem;">
-          <img src="{{ asset($F->image) }}" alt="">
+          <img src="{{ asset($F->image) }}" class="resize" alt="">
             <div class="card-body">
               <h5 class="card-title">{{$F->name}}</h5>
               <p class="card-text">Rp. {{$F->price}}</p>

@@ -13,7 +13,7 @@
     <div class="position-absolute top-50 start-50 translate-middle">
         
         <div class="detailPic" style="float: left">
-            <img src="{{ asset($F->image) }}" alt="FurnitureDetail">
+            <img src="{{ asset($F->image) }}" class="resize" alt="FurnitureDetail">
         </div>
         
         <div class="detailInfo" style="float: right">

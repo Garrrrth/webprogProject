@@ -53,3 +53,17 @@
     display: inline-block;
     font-size: 16px;
   }
+
+.resize {
+    width: 250px;
+    height: 250px;
+}
+
+
+
+.stickbottom {
+  position:-webkit-sticky;
+  bottom:5px;
+  width:20%;
+  justify-content: center;
+  }

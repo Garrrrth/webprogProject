@@ -6,44 +6,55 @@
 
 <div class="container-fluid mt-4">
     <div class="d-flex justify-content-center">
-      <h1 id="purple">Cart</h1>
+      <h1 id="purple">Checkout</h1>
     </div>
 
 {{-- ini entar buat foreachnya --}}
-@foreach ($header as $D)
-<div class="d-flex justify-content-between">
-    <p class="p-2"><img src="{{ asset($D->details->furniture->image) }}" alt=""></p>
-    <p class="p-2">{{$D->details->furniture->name}}</p>
-    <p class="p-2">{{$D->details->furniture->price}}</p>
-    <p class="p-2">{{$D->details->quantity}}</p>
-    <p class="p-2">{{$D->details->furniture->color}}</p>
-</div>
-@endforeach
 
+{{-- @foreach ($cart as $C)
+<div class="row justify-content-center pb-3">
+    <div class="col-2"><img src="{{ asset($C->furniture->image) }}" class="resize" alt="Furniture"></div>
+    <div class="col-1">{{$C->furniture->name}}</div>
+    <div class="col-1">{{$C->furniture->price}}</div>
+    <div class="col-1">{{$C->quantity}}</div>
+    <div class="col-1">{{$C->furniture->color}}</div>
+     --}}
+ 
+    
 
 <form action="/bayar/{{}}">
-    <div class="d-flex justify-content-center"> 
+    <div class="container"> 
     
-        <div class="d-flex justify-content-center">
-    
-            <div class="form-check">
-                <input class="Payment" type="radio" name="Payment" id="Payment" value="Credit" checked>
-                    Credit
+        <div class="row justify-content-center pb-3">
+            <div class="col-4">
+                <div class="form-check">
+                    <input class="Payment" type="radio" name="Payment" id="Payment" value="Credit" checked>
+                        Credit
+                </div>
+                <div class="form-check">
+                    <input class="Payment" type="radio" name="Payment" id="Payment" value="Debit">
+                        Debit
+                </div>
             </div>
-            <div class="form-check">
-                <input class="Payment" type="radio" name="Payment" id="Payment" value="Debit">
-                    Debit
-            </div>
+
+            
         </div>
-        <label for="Card">Credit Card Number:</label>
-        <input type="text" name="Card" placeholder="Enter Credit Card Number">
-    
-    </div>
-    <div class="mb-3 position-absolute bottom-0 start-50 translate-middle">
-        <a href="#"><button type="button" class="button">Proceed To Checkout</button></a>
+        <div class="row justify-content-center pb-3">
+            <div class="col-6"><label for="Card">Credit Card Number:</label>
+                <input type="text" name="Card" placeholder="Enter Credit Card Number"></div>
+            
+        </div>
         
-    
+        <div class="row justify-content-center pb-3">
+            <div class="stickbottom">
+            <a href="#"><button type="button" class="button">Checkout</button></a>
+                
+        </div>
+        
+        
+        </div>
     </div>
+    
 </form>
 
 @endsection
