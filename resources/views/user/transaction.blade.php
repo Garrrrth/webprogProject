@@ -51,6 +51,7 @@
               <td>kuantitas</td>
               <td>harga x kuantitas</td>
           </tr>
+          {{-- end foreach smua furniture di cart --}}
           <tr>
               <td class="text-center "colspan="3">Total Price : </td>
               <td>disini angka total</td>

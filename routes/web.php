@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuestController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\FurnitureController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -23,6 +23,9 @@ use App\Models\User;
 Route::get('/', [GuestController::class, 'home'])->name('home');
 Route::get('/home', [GuestController::class, 'home'])->name('home');
 Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
+
+//button search
+Route::post('/get',[FurnitureController::class, 'search']);
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [GuestController::class, 'login'])->name('login');
