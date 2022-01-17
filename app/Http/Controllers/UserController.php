@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Detail;
 use App\Models\Furniture;
 use App\Models\Header;
 use App\Models\User;
@@ -32,27 +33,24 @@ class UserController extends Controller
     }
 
     public function checkout(){
-        return view('user.checkout');
+        $user = Auth::user();
+        $header = Header::where('customer_id', $user->id)->get();
+
+        return view('user.checkout', ['header' => $header]);
     }
 
     public function buyfurn($Furniture_id, $user_id){
         // $furniture = Furniture::where('id', $Furniture_id)->get();
         // $user = User::where('id',$user_id)->get();
-        $cart = Cart::where('user_id', $user_id);
-        if($cart == null){
-            $buyfurn = new Cart();
-            $buyfurn->user_id = $user_id;
-            $buyfurn->furniture_id = $Furniture_id;
-            $buyfurn->quantity = 1;
-            $buyfurn->save();
-        }
-        else{
-            Cart::where('user_id', $user_id);
-            $cart->user_id = $user_id;
-            $cart->furniture_id = $Furniture_id;
-            $cart->quantity = 1;
-        }
         
+
+        $cart = Cart::where('user_id', $user_id);
+            $buyfurn = new Cart();
+        $buyfurn->user_id = $user_id;
+        $buyfurn->furniture_id = $Furniture_id;
+        $buyfurn->quantity = 1;
+        $buyfurn->save();
+       
 
         return redirect('/');
     }
@@ -62,6 +60,44 @@ class UserController extends Controller
         $cart = Cart::where('user_id', $user->id)->get();
 
         return view('user.cart', ['cart' => $cart]);
+    }
+
+    public function plusquantity($furniture_id){
+        $cart = Cart::where('furniture_id',$furniture_id)->get();
+        $cart-> quantity = $cart-> quantity+1;
+    }
+    public function minquantity($furniture_id){
+        $cart = Cart::where('furniture_id',$furniture_id)->get();
+        $cart-> quantity = $cart-> quantity -1;
+        if($cart->quantity = 0){
+            $cart->delete();
+        }
+    }
+
+    public function check(){
+        $user = auth::user();
+        $carts = $user->cart;
+
+        $header = new Header();
+        $header -> customer_id = $user->id;
+        $header->save();
+
+        foreach($carts as $cart){
+            $detail = new Detail();
+            $detail->header_id = $header->id;
+            $detail->furniture_id = $cart->furniture_id;
+            $detail->quantity = $cart->quantity;
+            $detail->save();
+        }
+
+        return redirect('checkout');
+    }
+
+    public function bayar($header_id,Request $request){
+            $header = Header::where('id',$header_id);
+            $header-> method = $request->method;
+            $header-> card_number = $request->card_number;
+            $header->save();
     }
 
 

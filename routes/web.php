@@ -37,6 +37,10 @@ Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
 
 Route::get('/detail/{id}', [UserController::class, 'detail'])->name('detail');
 Route::post('/bfurniture/{Fur_id}/{user_id}', [UserController::class, 'buyfurn']);
+Route::post('/ufurniture/{id}/min', [UserController::class, 'minquantity']);
+Route::post('/ufurniture/{id}/plus', [UserController::class, 'plusquantity']);
+Route::post('/checkout', [UserController::class, 'check']);
+Route::post('/bayar/{id}', [UserController::class, 'bayar']);
 
 //button profile
 
