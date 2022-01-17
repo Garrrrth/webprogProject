@@ -48,10 +48,12 @@
 
                 </div>
 
-                {{-- di tombol checkout direct ke home abis kelar, hrusnya ad msg sukses tpi js mager --}}
+                
 
                 <div class="row justify-content-center pb-3">
+                    <a href="/home">
                     <button type="submit" class="button">Checkout</button>
+                    </a>
                 </div>
 
 

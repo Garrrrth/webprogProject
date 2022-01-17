@@ -52,7 +52,9 @@
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>
             <form action="/bfurniture/{{$F->id}}/{{auth()->user()->id}}" method = "post">
                 {{ csrf_field() }}
-                <button type="submit" class="button2" >Add to Cart</button>
+                <a href="/home">
+                    <button type="submit" class="button" >Add to Cart</button>
+                </a>
             </form>
             
          @else

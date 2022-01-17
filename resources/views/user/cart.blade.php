@@ -37,9 +37,11 @@
                 </form>
             @endforeach
 
-
+            <div class="row justify-content-center pb-3">
+                <div class="col">
             <a href="/checkout"><button type="submit" class="button">Proceed To Checkout</button></a>
-
+             </div>
+            </div>
         </div>
 
     @endsection

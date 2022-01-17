@@ -25,7 +25,7 @@
                                 </tr>
                                 <tr>
                                     <td>Transaction Date</td>
-                                    <td>:</td>
+                                    <td>: {{ date('Y-m-d H:i:s') }}</td>
                                 </tr>
                                 <tr>
                                     <td>Method</td>
@@ -56,6 +56,14 @@
                                         <td>Rp. {{ $details->furniture->price * $details->quantity }}</td>
                                     </tr>
                                 @endforeach
+                                <tr>
+                                    <td class="text-center " colspan="3">Total Price : </td>
+                                    <td>IDR.
+                                        {{ $H->detail->sum(function ($a) {
+                                            return $a->quantity * $a->furniture->price;
+                                        }) }}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -63,15 +71,8 @@
                 {{-- foreach tiap transaksi disni --}}
 
                 {{-- end foreach smua furniture di cart --}}
-                <tr>
-                    <td class="text-center " colspan="3">Total Price : </td>
-                    <td>IDR.
-                        {{ $H->detail->sum(function ($a) {
-                            return $a->quantity * $a->furniture->price;
-                        }) }}
-                    </td>
-                </tr>
-
+                
+            
             </div>
 
             {{-- end foreach transaksi disini --}}

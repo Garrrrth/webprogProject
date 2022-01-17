@@ -23,14 +23,35 @@
                 {{-- ni ntar cardnya di loop trus hrefnya juga ngelempar barang dri database furniturenya --}}
                 @foreach ($Furniture as $F)
                     <div class="card" style="width: 18rem;">
-                        <img src="{{ asset($F->image) }}" alt="">
+                        <img src="{{ asset($F->image) }}" class="resize" alt="">
                         <div class="card-body">
                             <h5 class="card-title">{{ $F->name }}</h5>
                             <p class="card-text">Rp. {{ $F->price }}</p>
-                            <a href="/detail/{{ $F->id }}" class="btn btn-primary">Add to Cart</a>
+                            @if (auth()->user() != null)
+
+                            @if (auth()->user()->role == 'user')
+                                <a href="/detail/{{ $F->id }}" class="btn btn-primary">Add to Cart</a>
+                            @else
+                                <a href="/updatefurniture/{{ $F->id }}"><button type="button"
+                                        class="button1">Update</button></a>
+                                <form action="/delete/{{ $F->id }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('delete') }}
+                                    <button type="submit" class="button2">Delete</button>
+                                </form>
+                            @endif
+
+
+
+                        @else
+                            <a href="/login" class="btn btn-primary">Add to Cart</a>
+                        @endif
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="float-right">
+                {{ $Furniture->links() }}
             </div>
         </div>
 
