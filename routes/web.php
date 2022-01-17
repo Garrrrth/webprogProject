@@ -29,14 +29,14 @@ Route::get('/register', [GuestController::class, 'register'])->name('register');
 Route::post('/register',[GuestController::class, 'userregister']);
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
-Route::get('/cart', [UserController::class, 'cart'])->name('cart');
+Route::get('/cart', [UserController::class, 'showfurn']);
 Route::get('/checkout', [UserController::class, 'checkout'])->name('checkout');
 
 
 //button dalem cart/transaksi
 
 Route::get('/detail/{id}', [UserController::class, 'detail'])->name('detail');
-//Route::post('/bfurniture/{id}{id}(id)', [UserController::class, 'buyfurn']);
+Route::post('/bfurniture/{Fur_id}/{user_id}', [UserController::class, 'buyfurn']);
 
 //button profile
 

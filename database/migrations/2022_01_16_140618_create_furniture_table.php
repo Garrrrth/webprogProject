@@ -20,6 +20,7 @@ class CreateFurnitureTable extends Migration
             $table->string('type');
             $table->string('color');
             $table->string('image');
+            
             // name,price,type,color,img
         });
     }

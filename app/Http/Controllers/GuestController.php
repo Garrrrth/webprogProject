@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Furniture;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
 
 class GuestController extends Controller
 {
@@ -44,6 +44,17 @@ class GuestController extends Controller
     }
 
     public function userregister(Request $request){
+        $validator = Validator::make($request->all(), [
+            'Name' => 'required|unique:users,name|regex:/^[a-zA-Z ]*$/',
+            'Email' => 'required|unique:users,email|email',
+            'Password' => 'required|between:5,20',
+            'Address' => 'required|between:5,95'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('/register')->withInput()->withErrors($validator);
+        }
+
         $user = new User();
         $user->name = $request->Name;
         $user->email = $request->Email;
@@ -53,6 +64,6 @@ class GuestController extends Controller
         $user->role = 'user';
 
         $user->save();
-        return redirect()->back();
+        return redirect('/');
     }
 }

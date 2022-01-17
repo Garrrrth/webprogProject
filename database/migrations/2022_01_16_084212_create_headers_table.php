@@ -18,6 +18,7 @@ class CreateHeadersTable extends Migration
             $table->integer('customer_id')->references('id')->on('User');
             $table->string('method')->nullable();
             $table->string('card_number')->nullable();
+            $table->timestamps();
         });
     }
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart extends Model
 {
-    public $timestamp = false;
+    public $timestamps = false;
     use HasFactory;
     
     public function user(){
@@ -15,7 +15,7 @@ class Cart extends Model
     }
 
     public function furniture(){
-        return $this -> hasMany(Furniture::class, 'furniture_id', 'id');
+        return $this -> hasOne(Furniture::class, 'id', 'furniture_id');
     }
 
 

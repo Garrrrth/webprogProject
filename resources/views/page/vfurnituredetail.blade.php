@@ -50,7 +50,10 @@
 
          @if (auth()->user()->role == 'user')
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>
-            <a href="/bfurniture"><button type="button" class="button" >Add to Cart</button></a>
+            <form action="/bfurniture/{{$F->id}}/{{auth()->user()->id}}" method = "post">
+                {{ csrf_field() }}
+                <button type="submit" class="button2" >Add to Cart</button>
+            </form>
             
          @else
             <a href="/vfurniture"><button type="button" class="button" >Previous</button></a>

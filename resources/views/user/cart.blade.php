@@ -12,11 +12,14 @@
 {{-- ini entar buat foreachnya --}}
 
 <div class="d-flex justify-content-between">
-    <p class="p-2">Ini buat image</p>
-    <p class="p-2">Name</p>
-    <p class="p-2">Price</p>
-    <p class="p-2">Quantity</p>
-    <p class="p-2">Colour</p>
+    @foreach ($cart as $C)
+    <p class="p-2"><img src="{{ asset($C->furniture->image) }}" alt=""></p>
+    <p class="p-2">{{$C->furniture->name}}</p>
+    <p class="p-2">{{$C->furniture->price}}</p>
+    <p class="p-2">{{$C->furniture->quantity}}</p>
+    <p class="p-2">{{$C->furniture->colour}}</p>
+    @endforeach
+    {{--  --}}
     <a href="#"><button type="button" class="button">+</button></a>
     <a href="#"><button type="button" class="button">-</button></a>
 </div>

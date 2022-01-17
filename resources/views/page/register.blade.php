@@ -45,6 +45,12 @@
               </tr>
           </table>
           <button type="submit">Register</button>
+          @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <br>
+            <i>{{$error}}</i>
+            @endforeach
+          @endif
       </form>
     
 

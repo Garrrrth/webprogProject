@@ -53,7 +53,12 @@
               </td>
           </tr>
       </table>
-
+      @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <br>
+            <i>{{$error}}</i>
+            @endforeach
+          @endif
       <button type="submit">Add Furniture</button>
   </form>
 

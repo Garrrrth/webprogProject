@@ -26,6 +26,13 @@
             <label class="form-check-label" for="remember">Remember Me</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
+
+          @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <br>
+            <i>{{$error}}</i>
+            @endforeach
+          @endif
         </form>
       
       

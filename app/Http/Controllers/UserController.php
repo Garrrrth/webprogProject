@@ -7,7 +7,9 @@ use App\Models\Furniture;
 use App\Models\Header;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -33,16 +35,34 @@ class UserController extends Controller
         return view('user.checkout');
     }
 
-    // public function buyfurn($Furniture_id, $user_id){
-    //     $furniture = Furniture::where('id', $Furniture_id)->get();
-    //     $user = User::where('id',$user_id)->get();
-    //     $buyfurn = new Cart();
-    //     $buyfurn->furniture_id = $furniture;
-    //     $buyfurn->quantity = 1;
-    //     $buyfurn->save();
+    public function buyfurn($Furniture_id, $user_id){
+        // $furniture = Furniture::where('id', $Furniture_id)->get();
+        // $user = User::where('id',$user_id)->get();
+        $cart = Cart::where('user_id', $user_id);
+        if($cart == null){
+            $buyfurn = new Cart();
+            $buyfurn->user_id = $user_id;
+            $buyfurn->furniture_id = $Furniture_id;
+            $buyfurn->quantity = 1;
+            $buyfurn->save();
+        }
+        else{
+            Cart::where('user_id', $user_id);
+            $cart->user_id = $user_id;
+            $cart->furniture_id = $Furniture_id;
+            $cart->quantity = 1;
+        }
+        
 
-    //     return redirect()->back();
-    // }
+        return redirect('/');
+    }
+
+    public function showfurn(){
+        $user = Auth::user();
+        $cart = Cart::where('user_id', $user->id)->get();
+
+        return view('user.cart', ['cart' => $cart]);
+    }
 
 
     // admin
@@ -67,6 +87,17 @@ class UserController extends Controller
     }
 
     public function confirmadd(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:15|unique:furniture,name,',
+            'price' => 'required|numeric|between:5000,10000000',
+            'image' => 'nullable|mimes:jpg,png,jpeg'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+        
         $file = $request->file('image');
         $imageName = time(). '.' . $file->getClientOriginalExtension();
         Storage::putFileAs('public/img', $file, $imageName);
@@ -85,10 +116,20 @@ class UserController extends Controller
         $furniture->color = $request -> color;
         $furniture->image = $imageName;
         $furniture->save();
-        return redirect()->back();
+        return redirect('/');
     }
 
     public function updated($furnitureID, Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:15|unique:furniture,name,',
+            'price' => 'required|numeric|between:5000,10000000',
+            'image' => 'nullable|mimes:jpg,png,jpeg'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        }
+
         $file = $request->file('image');
         $imageName = time(). '.' . $file->getClientOriginalExtension();
         Storage::putFileAs('public/img', $file, $imageName);
@@ -104,7 +145,7 @@ class UserController extends Controller
         $furniture->color = $request -> color;
         $furniture->image = $imageName;
         $furniture->save();
-        return redirect()->back();
+        return redirect('/');
     }
 
 }

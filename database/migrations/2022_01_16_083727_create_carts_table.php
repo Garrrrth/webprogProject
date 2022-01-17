@@ -15,9 +15,10 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('header_id') ->references('id')->on('Header');
+            $table->integer('user_id') ->references('id')->on('Header');
             $table->integer('furniture_id') ->references('id')->on('Furniture');
             $table->integer('quantity');
+            
         });
     }
 

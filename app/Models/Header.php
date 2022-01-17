@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Header extends Model
 {
-    public $timestamp = false;
+    public $timestamps = false;
     use HasFactory;
 
-    public function Headers(){
-        return $this -> hasOne(User::class, 'user_id', 'id');
+    public function user(){
+        return $this -> belongsTo(User::class);
+    }
+
+    public function detail(){
+        return $this -> hasMany(Detail::class);
     }
 }

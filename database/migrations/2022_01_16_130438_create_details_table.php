@@ -15,6 +15,9 @@ class CreateDetailsTable extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
+            $table->integer('header_id') ->references('id')->on('Header');
+            $table->integer('furniture_id') ->references('id')->on('Furniture');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
