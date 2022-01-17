@@ -23,9 +23,10 @@ use App\Models\User;
 Route::get('/', [GuestController::class, 'home'])->name('home');
 Route::get('/home', [GuestController::class, 'home'])->name('home');
 Route::get('/vfurniture', [GuestController::class, 'viewfurniture'])->name('viewfurniture');
+Route::post('/search', [FurnitureController::class, 'search']);
 
 //button search
-Route::post('/get',[FurnitureController::class, 'search']);
+
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [GuestController::class, 'login'])->name('login');
@@ -48,10 +49,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/ufurniture/{id}/plus', [UserController::class, 'plusquantity']);
     Route::post('/checkout', [UserController::class, 'check']);
     Route::post('/bayar/{id}', [UserController::class, 'bayar']);
+    Route::get('/transactionHistory', [MemberController::class, 'transaction'])->name('transaction');
 });
 
 //transaction
-Route::get('/transactionHistory',[UserController::class,'transactionHistory'])->name('transactionHistory');
+
 
 
 

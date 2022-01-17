@@ -11,6 +11,6 @@ class FurnitureController extends Controller
     {
         $search = $request->search;
         $furniture = Furniture::where('name', "like", "%$search%")->paginate(4);
-        return view('index', ["furniture" => $furniture]);
+        return view('page.vfurniture', ["Furniture" => $furniture]);
     }
 }

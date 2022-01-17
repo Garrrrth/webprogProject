@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Detail;
+use App\Models\Furniture;
+use App\Models\Header;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,5 +57,15 @@ class MemberController extends Controller
 
         $user->save();
         return redirect('profile');
+    }
+
+    public function transaction()
+    {
+        $user = Auth::user();
+        $header = Header::where('customer_id', $user->id)->get();
+        $detail = Detail::all();
+        $furniture = Furniture::all();
+
+        return view('user.transaction', ['Header' => $header, 'detail' => $detail, 'Furniture' => $furniture]);
     }
 }
